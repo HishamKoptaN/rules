@@ -1,0 +1,25 @@
+name: Automatic Pull Request
+
+on:
+  push:
+    branches:
+      - 'refactor/**'  
+      - 'feat/**'       
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: diillson/auto-pull-request@v1.0.1
+        with:
+          source_branch: ""                               
+          destination_branch: "dev"                       
+          pr_title: "Automated PR from ${{ github.ref }}"   
+          pr_body: |
+            :crown: *An automated PR created by AI Agent / GitHub Actions*
+            This pull request was automatically generated for branch `${{ github.ref }}`.
+          github_token: ${{ secrets.GITHUB_TOKEN }}         
