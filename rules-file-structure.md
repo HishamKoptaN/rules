@@ -1,0 +1,1 @@
+../../.qoder/memory/rules-file-structure.md
