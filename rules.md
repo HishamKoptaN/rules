@@ -16,5 +16,6 @@ Each rule group is maintained in its own file:
 - [[rules-components]] — phone form field and icon library choices.
 - [[rules-action-buttons]] — action button activation and domain-layer `hasChanges` logic.
 - [[rules-file-structure]] — 100-line file limit and the 4-file folder modularization threshold.
+- [[rules-git-granularity]] — max 150 lines per commit, 350-400 lines per PR, and large features auto-splitting.
 
-Related: [[architecture]], [[git-workflow]]
+Related: [[architecture]], [[git-workflow]], [[rules-git-granularity]]
