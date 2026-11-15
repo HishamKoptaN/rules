@@ -56,6 +56,7 @@
 @[Git Granularity & PR Size](rules-git-granularity.md)
 @[Git Workflow](git-workflow.md)
 @[Architecture & Feature Conventions](architecture.md)
+@[Stack Packages & pubspec Baseline](rules-packages.md)
 @[BLoC Rules](rules-bloc.md)
 @[Dart Syntax Rules](rules-dart-syntax.md)
 @[Theme-Driven Styling Rules](rules-theming.md)

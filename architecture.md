@@ -25,4 +25,4 @@ When creating new features, always follow the Clean Architecture directory struc
 
 ## Error Handling & Result Types
 - **NEVER** use `Either` (e.g. `Future<Either<Exception, T>>`) for error handling or repository methods (e.g., `Future<Either<Exception, List<FarmEntity>>> getFarms`).
-- **ALWAYS** use `Future<ExecuteGuard<T>>` (e.g., `Future<ExecuteGuard<List<FarmEntity>>>`) for capturing errors and handling methods that can fail or succeed.
+- **ALWAYS** use `Future<ExecuteGuard<T>>` (e.g., `Future<ExecuteGuard<List<FarmEntity>>>`) for capturing errors and handling methods that can fail or succeed. The guard comes from the in-house `error_handler` package — see [[rules-packages]].
