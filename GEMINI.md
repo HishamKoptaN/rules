@@ -78,3 +78,4 @@ Each rule group lives in its own folder by specialty.
 
 ## `meta/` — Agent Behavior
 @[Post-Task Suggestions](meta/suggestions.md)
+@[Rate Limits & Auto-Retry](meta/rules-rate-limits.md)
