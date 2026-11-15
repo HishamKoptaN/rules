@@ -53,15 +53,28 @@
 
 # General Workspace Rulebook Index
 
-@[Git Granularity & PR Size](rules-git-granularity.md)
-@[Git Workflow](git-workflow.md)
-@[Architecture & Feature Conventions](architecture.md)
-@[Stack Packages & pubspec Baseline](rules-packages.md)
-@[BLoC Rules](rules-bloc.md)
-@[Dart Syntax Rules](rules-dart-syntax.md)
-@[Theme-Driven Styling Rules](rules-theming.md)
-@[Responsive Design Rules](rules-responsive.md)
-@[Component Rules](rules-components.md)
-@[Action Button Rules](rules-action-buttons.md)
-@[File Structure Rules](rules-file-structure.md)
-@[Post-Task Suggestions](suggestions.md)
+Each rule group lives in its own folder by specialty.
+
+## `git/` — Version Control
+@[Git Workflow](git/git-workflow.md)
+@[Git Granularity & PR Size](git/rules-git-granularity.md)
+
+## `architecture/` — Structure & State
+@[Architecture & Feature Conventions](architecture/architecture.md)
+@[BLoC Rules](architecture/rules-bloc.md)
+@[File Structure Rules](architecture/rules-file-structure.md)
+@[Action Button Rules](architecture/rules-action-buttons.md)
+
+## `code-style/` — Language & Styling
+@[Dart Syntax Rules](code-style/rules-dart-syntax.md)
+@[Theme-Driven Styling Rules](code-style/rules-theming.md)
+
+## `ui/` — Layout & Components
+@[Responsive Design Rules](ui/rules-responsive.md)
+@[Component Rules](ui/rules-components.md)
+
+## `packages/` — Stack & Dependencies
+@[Stack Packages & pubspec Baseline](packages/rules-packages.md)
+
+## `meta/` — Agent Behavior
+@[Post-Task Suggestions](meta/suggestions.md)
