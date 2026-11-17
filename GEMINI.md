@@ -72,6 +72,7 @@ Each rule group lives in its own folder by specialty.
 ## `ui/` — Layout & Components
 @[Responsive Design Rules](ui/rules-responsive.md)
 @[Component Rules](ui/rules-components.md)
+@[No Web HTML/JS (Flutter-Dart Only)](ui/rules-no-web-html-js.md)
 
 ## `packages/` — Stack & Dependencies
 @[Stack Packages & pubspec Baseline](packages/rules-packages.md)

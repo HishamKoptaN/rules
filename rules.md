@@ -38,6 +38,7 @@ rules/
 ## `ui/` — Layout & Components
 - [[rules-responsive]] — تخطيط متكيف للابتوب/التابلت/الموبايل مع امتدادات ScreenUtil.
 - [[rules-components]] — `CustomPhoneFormField` وأيقونات FontAwesome / Lucide فقط.
+- [[rules-no-web-html-js]] — يُمنع بناء صفحات/أكواد بـ HTML/JS داخل `web/`؛ تُبنى بـ Flutter/Dart.
 
 ## `packages/` — Stack & Dependencies
 - [[rules-packages]] — حزم الـ Baseline، حزمك الداخلية، dev dependencies، والحزم الممنوعة.
