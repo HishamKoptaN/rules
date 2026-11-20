@@ -70,7 +70,7 @@ Each rule group lives in its own folder by specialty.
 @[Theme-Driven Styling Rules](code-style/rules-theming.md)
 
 ## `ui/` — Layout & Components
-@[Responsive Design Rules](ui/rules-responsive.md)
+@[Responsive Design Rules (Mobile-First)](ui/rules-responsive.md)
 @[Component Rules](ui/rules-components.md)
 @[No Web HTML/JS (Flutter-Dart Only)](ui/rules-no-web-html-js.md)
 

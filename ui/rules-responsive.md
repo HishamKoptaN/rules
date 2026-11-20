@@ -1,6 +1,6 @@
 ---
 name: rules-responsive
-description: Responsive design across laptop, tablet and mobile — adaptive layouts plus ScreenUtil spacing (.r/.w/.h/.sp) and the post-generation auto-fix pass
+description: Mobile-first design (mobile primary, web secondary) with adaptive tablet/laptop layouts plus ScreenUtil spacing (.r/.w/.h/.sp) and the post-generation auto-fix pass
 metadata:
   type: feedback
 ---
@@ -9,8 +9,14 @@ metadata:
 
 Related: [[rules]], [[rules-dart-syntax]]
 
+## Mobile-First Priority (ALWAYS)
+- **الموبايل هو الهدف الأساسي، والويب ثانوي.** ابدأ التصميم والتنفيذ بالشاشة الموبايل واعتمدها قبل أي توسيع لشاشات أكبر.
+- When using external design tools (e.g. Google Stitch), generate and approve the **mobile screen first**; generate desktop/tablet only afterwards and with the same identity.
+- The mobile layout sets the content order, spacing rhythm, and component sizing; wider breakpoints reflow that layout rather than redefining it.
+- Never let a desktop mockup drive the mobile design. If they conflict, the mobile version wins.
+
 ## Multi-Device Layout (ALWAYS)
-Every screen MUST be designed and verified to work on **laptop (desktop-width), tablet, and mobile** — not mobile only.
+Every screen MUST still be designed and verified to work on **laptop (desktop-width), tablet, and mobile** — mobile-first does not mean mobile-only.
 
 - Build adaptive layouts, never a fixed mobile layout stretched on wide screens.
 - Use `LayoutBuilder` / `MediaQuery.sizeOf(context)` breakpoints to switch layout, not device-type checks.
