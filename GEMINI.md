@@ -58,6 +58,7 @@ Each rule group lives in its own folder by specialty.
 ## `git/` — Version Control
 @[Git Workflow](git/git-workflow.md)
 @[Git Granularity & PR Size](git/rules-git-granularity.md)
+@[Branch Cleanup](git/branch-cleanup.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
