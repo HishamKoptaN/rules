@@ -122,10 +122,10 @@ chmod +x ~/my-git/hooks/post-checkout ~/my-git/hooks/post-merge
 | الخطوة | الأمر | الهدف |
 |--------|-------|-------|
 | 1 | `git fetch --prune` | مزامنة مراجع Remote وحذف الفروع المحذوفة |
-| 2 | `git branch -vv | grep ': gone]'` | معاينة الفروع المحلية التي أصبحت `[gone]` |
-| 3 | `git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D` | حذف الفروع gone تلقائياً |
-| 4 | `git branch --merged main | grep -vE '^\*|^\s*(main|master|dev)$'` | عرض الفروع المحلية المدمجة |
-| 5 | `git branch --merged main | grep -vE '^\*|^\s*(main|master|dev)$' | xargs -r git branch -d` | حذف الفروع المدمجة |
+| 2 | `git branch -vv \| grep ': gone]'` | معاينة الفروع المحلية التي أصبحت `[gone]` |
+| 3 | `git branch -vv \| grep ': gone]' \| awk '{print $1}' \| xargs -r git branch -D` | حذف الفروع gone تلقائياً |
+| 4 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev)$'` | عرض الفروع المحلية المدمجة |
+| 5 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev)$' \| xargs -r git branch -d` | حذف الفروع المدمجة |
 
 ---
 
