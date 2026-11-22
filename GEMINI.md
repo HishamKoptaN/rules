@@ -83,3 +83,4 @@ Each rule group lives in its own folder by specialty.
 @[Rate Limits & Auto-Retry](meta/rules-rate-limits.md)
 @[Post-Task Project Review](meta/rules-post-task-review.md)
 @[Prod Branch Invisible](meta/rules-prod-invisible.md)
+@[Testing Environment Rule](meta/testing/rules-testing-environments.md)
