@@ -79,7 +79,7 @@ Each rule group lives in its own folder by specialty.
 @[Stack Packages & pubspec Baseline](packages/rules-packages.md)
 
 ## `meta/` — Agent Behavior
-@[Post-Task Suggestions](meta/suggestions.md)
+@[Suggestions & Approval Flow](meta/suggestions.md)
 @[Rate Limits & Auto-Retry](meta/rules-rate-limits.md)
 @[Post-Task Project Review](meta/rules-post-task-review.md)
 @[Prod Branch Invisible](meta/rules-prod-invisible.md)
