@@ -13,6 +13,15 @@ metadata:
 
 ---
 
+## قاعدة صارمة: الفروع المحمية (لا تُحذف أبداً)
+
+- **يُمنع منعاً باتاً** حذف الفرعين `dev` و`prod`، محلياً (`git branch -d/-D`) أو عن بُعد (`git push origin --delete`)، تحت أي ظرف.
+- ينطبق المنع على كل الوكلاء وأي أدوات تنظيف تلقائية (Aliases / Hooks / Scripts).
+- أي أمر تنظيف يجب أن يستثني `dev` و`prod` صراحةً قبل التنفيذ.
+- إذا طُلب حذف أحدهما، ارفض الطلب ولا تنفّذ أي أمر حذف.
+
+---
+
 ## الخطوة 1: مزامنة وحذف مراجع الفروع المحذوفة من Remote
 
 قبل أي عملية حذف، يجب تحديث قائمة الفروع البعيدة والتخلص من أي مراجع لم تعد موجودة:
@@ -40,7 +49,7 @@ git branch -vv | grep ': gone]'
 
 ### الحذف التلقائي لهذه الفروع (يحذف الفروع المدمجة بأمان باستخدام `-d`):
 ```bash
-git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
+git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(dev|prod)$' | xargs -r git branch -d
 ```
 
 > **ملاحظة هامة:** استخدام `-d` يحذف الفرع فقط إذا كان مدمجاً (merged) في الفرع الحالي.  
@@ -49,7 +58,7 @@ git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
 
 ### الحذف الجبري (احذر - يمحى الفرع نهائياً حتى لو كان غير مدمج):
 ```bash
-git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(dev|prod)$' | xargs -r git branch -D
 ```
 
 ---
@@ -60,12 +69,12 @@ git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 
 ### عرض الفروع المحلية المدمجة (استثناء الفروع الأساسية والفرع الحالي):
 ```bash
-git branch --merged main | grep -vE '^\*|^\s*(main|master|dev)$'
+git branch --merged main | grep -vE '^\*|^\s*(main|master|dev|prod)$'
 ```
 
 ### الحذف الدفعة الواحدة بعد التأكد:
 ```bash
-git branch --merged main | grep -vE '^\*|^\s*(main|master|dev)$' | xargs -r git branch -d
+git branch --merged main | grep -vE '^\*|^\s*(main|master|dev|prod)$' | xargs -r git branch -d
 ```
 
 > **تنبيه مهم بخصوص Squash merge:**  
@@ -81,7 +90,7 @@ git branch --merged main | grep -vE '^\*|^\s*(main|master|dev)$' | xargs -r git 
 
 ```ini
 [alias]
-    cleanup = "!git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D"
+    cleanup = "!git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(dev|prod)$' | xargs -r git branch -D"
 ```
 
 ### الاستخدام:
@@ -123,9 +132,9 @@ chmod +x ~/my-git/hooks/post-checkout ~/my-git/hooks/post-merge
 |--------|-------|-------|
 | 1 | `git fetch --prune` | مزامنة مراجع Remote وحذف الفروع المحذوفة |
 | 2 | `git branch -vv \| grep ': gone]'` | معاينة الفروع المحلية التي أصبحت `[gone]` |
-| 3 | `git branch -vv \| grep ': gone]' \| awk '{print $1}' \| xargs -r git branch -D` | حذف الفروع gone تلقائياً |
-| 4 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev)$'` | عرض الفروع المحلية المدمجة |
-| 5 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev)$' \| xargs -r git branch -d` | حذف الفروع المدمجة |
+| 3 | `git branch -vv \| grep ': gone]' \| awk '{print $1}' \| grep -vE '^(dev\|prod)$' \| xargs -r git branch -D` | حذف الفروع gone تلقائياً (باستثناء dev/prod) |
+| 4 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev\|prod)$'` | عرض الفروع المحلية المدمجة (باستثناء المحمية) |
+| 5 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev\|prod)$' \| xargs -r git branch -d` | حذف الفروع المدمجة (باستثناء المحمية) |
 
 ---
 
@@ -134,8 +143,8 @@ chmod +x ~/my-git/hooks/post-checkout ~/my-git/hooks/post-merge
 1. **Squash vs Merge:**  
    - إذا كان اعتمادك على **Squash and merge**، فإن `git branch -d` قد يرفض حذف فروع بدت غير مدمجة رغم وجود تغييراتها في `main`. يفضل التحقق يدوياً أو استخدام `-D` بعد التأكد.
 
-2. **حماية الفروع الأساسية:**  
-   - الأوامر أعلاه تستثني تلقائياً `main`، `master`، و `dev` من الحذف. يمكنك تعديل تعبير `grep -vE` لإضافة فروع أخرى تحميها.
+2. **حماية الفروع الأساسية (إلزامي):**  
+   - يُمنع حذف `dev` و `prod` نهائياً (محلياً أو عن بُعد) تحت أي ظرف. الأوامر أعلاه تستثنيهما صراحةً بالإضافة إلى `main` و `master`. لا يُسمح بإزالة هذا الاستثناء.
 
 3. **العمل بأمان:**  
    - جرب الخطوات بالمعاينة (`grep` فقط) قبل الحذف الفعلي، خصوصاً عند استخدام `-D` للتفرض الحذف.

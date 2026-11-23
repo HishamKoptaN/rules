@@ -25,7 +25,7 @@ rules/
 ## `git/` — Version Control
 - [[git-workflow]] — فرع مستقل لكل مهمة: إنشاء، دفع، عودة إلى الفرع الأساسي.
 - [[rules-git-granularity]] — حد 150 سطرًا للـ commit، و350–400 سطرًا للفرع/PR، والتقسيم التلقائي.
-- [[branch-cleanup]] — تنظيف الفروع المحلية المتطابقة مع Remote وحذف الفروع التي أصبحت `[gone]` أو المدمجة.
+- [[branch-cleanup]] — تنظيف الفروع المحلية المتطابقة مع Remote وحذف الفروع التي أصبحت `[gone]` أو المدمجة، مع منع نهائي لحذف `dev` و`prod`.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.
