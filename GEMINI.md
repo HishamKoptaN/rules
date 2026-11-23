@@ -32,7 +32,7 @@
 إذا تطلبت المهمة تعديلات تتجاوز حاجز الـ 400 سطر، يُلزم الوكيل باتباع إحدى الآليتين التاليتين تلقائياً:
 1. **الفروع الفرعية المتسلسلة (Sequential Sub-branches):**
    - تقسيم الميزة إلى عدة فروع فرعية متسلسلة ومرتبطة (مثل: `feature/<name>-part1-models` ثم `feature/<name>-part2-repository` ثم `feature/<name>-part3-ui`).
-   - فتح طلب سحب (PR) مستقل لكل فرع فرعي بحيث لا يتجاوز 350–400 سطر.
+   - دفع كل فرع فرعي إلى Remote؛ طلب السحب يُنشأ تلقائياً عند الدفع، ولا يُنفَّذ أي إجراء محلي خاص به.
 2. **التوقف عند نقاط التفتيش المعمارية (Layer Checkpoint & Summary):**
    - التوقف الإلزامي بعد إتمام كل طبقة معمارية رئيسية.
    - تقديم ملخص مختصر ودقيق للتغييرات المنجزة (Summary of Changes) والتحقق من سلامتها مع المستخدم قبل الانتقال للجزء التالي.
@@ -58,6 +58,7 @@ Each rule group lives in its own folder by specialty.
 ## `git/` — Version Control
 @[Git Workflow](git/git-workflow.md)
 @[Git Granularity & PR Size](git/rules-git-granularity.md)
+@[Pull Requests Auto-Created](git/rules-pull-requests.md)
 @[Branch Cleanup](git/branch-cleanup.md)
 
 ## `architecture/` — Structure & State

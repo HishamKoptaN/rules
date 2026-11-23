@@ -14,6 +14,7 @@ At the end of every completed task or response, you MUST provide 2 to 3 concise,
 - As soon as the user clicks an option, EXECUTE it immediately: do not ask for a second confirmation and do not merely explain the steps.
 - If the chosen action needs another decision, present the next set of options with the same interactive tool.
 - Standing git rules still apply: only offer merge or destructive actions when already authorized by the user or by the rules.
+- Never offer PR creation as a suggestion — pull requests are created automatically on push; see [[rules-pull-requests]].
 
 ## Style
 - Keep options short so the user can quickly tap them on mobile without typing.
