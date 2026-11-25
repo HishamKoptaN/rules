@@ -46,6 +46,7 @@ rules/
 
 ## `packages/` — Stack & Dependencies
 - [[rules-packages]] — حزم الـ Baseline، حزمك الداخلية، dev dependencies، والحزم الممنوعة.
+- [[rules-packages-add-ons]] — dev dependencies، حزم الميزات، الحزم الممنوعة، وقواعد إضافة الحزم.
 
 ## `meta/` — Agent Behavior
 - [[suggestions]] — اقتراحات تفاعلية: إجراءات بعد المهمة تُنفَّذ بالنقر، واقتراحات قبل التنفيذ تُختار ثم يُوافق عليها قبل التنفيذ.

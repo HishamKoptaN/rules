@@ -79,6 +79,7 @@ Each rule group lives in its own folder by specialty.
 
 ## `packages/` — Stack & Dependencies
 @[Stack Packages & pubspec Baseline](packages/rules-packages.md)
+@[Packages Add-Ons](packages/rules-packages-add-ons.md)
 
 ## `meta/` — Agent Behavior
 @[Suggestions & Approval Flow](meta/suggestions.md)
