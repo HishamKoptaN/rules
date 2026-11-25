@@ -59,7 +59,8 @@ Each rule group lives in its own folder by specialty.
 @[Git Workflow](git/git-workflow.md)
 @[Git Granularity & PR Size](git/rules-git-granularity.md)
 @[Pull Requests Auto-Created](git/rules-pull-requests.md)
-@[Branch Cleanup](git/branch-cleanup.md)
+@[Branch Cleanup](git/branch-cleanup/rules-branch-cleanup.md)
+@[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
@@ -78,6 +79,7 @@ Each rule group lives in its own folder by specialty.
 
 ## `packages/` — Stack & Dependencies
 @[Stack Packages & pubspec Baseline](packages/rules-packages.md)
+@[Packages Add-Ons](packages/rules-packages-add-ons.md)
 
 ## `meta/` — Agent Behavior
 @[Suggestions & Approval Flow](meta/suggestions.md)
