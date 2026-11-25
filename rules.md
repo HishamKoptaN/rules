@@ -27,6 +27,7 @@ rules/
 - [[rules-git-granularity]] — حد 150 سطرًا للـ commit، و350–400 سطرًا للفرع/PR، والتقسيم التلقائي.
 - [[rules-pull-requests]] — طلبات السحب تُنشأ تلقائياً عند الدفع؛ لا خيار ولا إجراء محلي لها.
 - [[branch-cleanup]] — تنظيف الفروع المحلية المتطابقة مع Remote وحذف الفروع التي أصبحت `[gone]` أو المدمجة، مع منع نهائي لحذف `dev` و`prod`.
+- [[rules-worktrees]] — إدارة worktrees المتعددة: إنشاء worktree منفصل لكل مهمة بدل تبديل الفروع.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.

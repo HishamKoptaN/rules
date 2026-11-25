@@ -60,6 +60,7 @@ Each rule group lives in its own folder by specialty.
 @[Git Granularity & PR Size](git/rules-git-granularity.md)
 @[Pull Requests Auto-Created](git/rules-pull-requests.md)
 @[Branch Cleanup](git/branch-cleanup.md)
+@[Worktree Rules](git/worktrees/rules-worktrees.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
