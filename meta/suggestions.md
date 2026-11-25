@@ -10,8 +10,9 @@ At the end of every completed task or response, you MUST provide 2 to 3 concise,
 
 ## Interactive Buttons (Mandatory)
 - ALWAYS deliver the suggestions through the interactive question/choices tool so they render as clickable buttons — never as plain markdown bullet points.
+- ALWAYS set `multiple: true` on post-task suggestion lists so the user can pick several options in one tap batch. Never force a single choice when there are 2–3 suggestions.
 - Each option MUST be a direct executable action phrased from the user's perspective (e.g. "Deploy dev", "Add a regression check", "Run the tests").
-- As soon as the user clicks an option, EXECUTE it immediately: do not ask for a second confirmation and do not merely explain the steps.
+- As soon as the user submits the selection, EXECUTE **every selected option** — not just one — in a single batch, ordering dependent steps logically. Do not ask for a second confirmation and do not merely explain the steps.
 - If the chosen action needs another decision, present the next set of options with the same interactive tool.
 - Standing git rules still apply: only offer merge or destructive actions when already authorized by the user or by the rules.
 - Never offer PR creation as a suggestion — pull requests are created automatically on push; see [[rules-pull-requests]].
@@ -23,11 +24,11 @@ At the end of every completed task or response, you MUST provide 2 to 3 concise,
 ## Pre-Execution Suggestions (Fix / Implementation)
 When the user asks what to fix, change, or build — or whenever you propose a plan before touching code — you MUST NOT start implementing and MUST NOT send a plain markdown bullet list.
 
-- Present 2–4 concrete options through the interactive question/choices tool so they render as selectable buttons.
+- Present 2–4 concrete options through the interactive question/choices tool so they render as selectable buttons. Set `multiple: true` when the options can be carried out together; keep it `false` when they are mutually exclusive.
 - Each option MUST be a self-contained executable change with a short scope label (e.g. "Fix signup crash", "Unify entity types", "Enable login validation").
 - If there is a clear best next step, mark it as recommended by appending "(Recommended)" / "(موصى به)" to its label. The tool's automatic "Type your own answer" option is enough — do not add it manually.
-- After the user selects an option, ask for explicit approval with the same interactive tool: short choices such as "ابدأ التنفيذ" / "اختر خيارًا آخر".
-- EXECUTE ONLY after that approval. The first selection is a choice, not permission to write code.
+- After the user submits the selection, ask for explicit approval with the same interactive tool: short choices such as "ابدأ التنفيذ" / "اختر خيارًا آخر".
+- EXECUTE ONLY after that approval. The first selection is a choice, not permission to write code. When several options were approved, implement **all of them** in one batch, each on its own branch and commit per [[rules-git-granularity]].
 - This extra approval applies only to pre-execution suggestions. Post-task suggestions above still execute immediately on click.
 - If the approved option is large, split it into 2–4 smaller options and repeat selection → approval before each atomic step.
 - Keep [[rules-git-granularity]] intact: one branch per approved option and commits of at most 150 lines.
