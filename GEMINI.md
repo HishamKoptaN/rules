@@ -61,6 +61,7 @@ Each rule group lives in its own folder by specialty.
 @[Pull Requests Auto-Created](git/rules-pull-requests.md)
 @[Branch Cleanup](git/branch-cleanup/rules-branch-cleanup.md)
 @[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
+@[Pull Before Modify](git/rules-pull-before-modify.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
