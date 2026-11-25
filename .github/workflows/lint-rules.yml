@@ -1,0 +1,34 @@
+name: Lint Rules
+
+on:
+  push:
+    paths:
+      - 'GEMINI.md'
+      - 'rules.md'
+      - 'scripts/lint-rules.sh'
+      - 'git/**'
+      - 'architecture/**'
+      - 'code-style/**'
+      - 'ui/**'
+      - 'packages/**'
+      - 'meta/**'
+  pull_request:
+    paths:
+      - 'GEMINI.md'
+      - 'rules.md'
+      - 'scripts/lint-rules.sh'
+      - 'git/**'
+      - 'architecture/**'
+      - 'code-style/**'
+      - 'ui/**'
+      - 'packages/**'
+      - 'meta/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Run rules lint
+        run: bash scripts/lint-rules.sh
