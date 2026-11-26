@@ -40,6 +40,7 @@ rules/
 ## `code-style/` — Language & Styling
 - [[rules-dart-syntax]] — block bodies إلزامية و dot shorthand.
 - [[rules-theming]] — صفر ألوان أو أنماط نصية مكتوبة يدويًا؛ كل شيء من الـ Theme.
+- [[rules-resource-cleanup]] — تنظيف controllers وsubscriptions عند حذف widget أو bloc.
 
 ## `ui/` — Layout & Components
 - [[rules-responsive]] — تصميم Mobile-first أولًا، ثم تكيف الويب/التابلت مع امتدادات ScreenUtil.
