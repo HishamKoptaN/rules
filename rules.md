@@ -19,6 +19,7 @@ rules/
 ├── ui/                        # التجاوب والتصميم والعناصر المرئية
 ├── packages/                  # الحزم والإصدارات وملف pubspec
 └── meta/                      # سلوك الوكيل قبل وبعد المهام
+    ├── design/                # طلب تصاميل Google Stitch عند الحاجة إلى تصميم
     ├── planning/              # بدء المهمة بخطة مع تأكيد
     └── testing/               # قواعد بيئة الاختبارات
 ```
@@ -27,7 +28,9 @@ rules/
 - [[git-workflow]] — فرع مستقل لكل مهمة: إنشاء، دفع، عودة إلى الفرع الأساسي.
 - [[rules-git-granularity]] — حد 150 سطرًا للـ commit، و350–400 سطرًا للفرع/PR، والتقسيم التلقائي.
 - [[rules-pull-requests]] — طلبات السحب تُنشأ تلقائياً عند الدفع؛ لا خيار ولا إجراء محلي لها.
-- [[branch-cleanup]] — تنظيف الفروع المحلية المتطابقة مع Remote وحذف الفروع التي أصبحت `[gone]` أو المدمجة، مع منع نهائي لحذف `dev` و`prod`.
+- [[rules-branch-cleanup]] — حذف الفروع المحلية التي أصبحت `[gone]` أو مدمجة في الفرع الأساس، مع منع نهائي لحذف `dev` و`prod`.
+- [[rules-branch-cleanup-advanced]] — خطوات متقدمة: حذف الفروع المدمجة، الـ alias للتنظيف، والهووكات التلقائية.
+- [[rules-pull-before-modify]] — قبل أي تعديل: سحب آخر نسخة من dev من origin لمنع التضارب، خاصة في worktrees المنفصلة.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.
@@ -46,6 +49,7 @@ rules/
 
 ## `packages/` — Stack & Dependencies
 - [[rules-packages]] — حزم الـ Baseline، حزمك الداخلية، dev dependencies، والحزم الممنوعة.
+- [[rules-packages-add-ons]] — dev dependencies، حزم الميزات، الحزم الممنوعة، وقواعد إضافة الحزم.
 
 ## `meta/` — Agent Behavior
 - [[suggestions]] — اقتراحات تفاعلية: إجراءات بعد المهمة تُنفَّذ بالنقر، واقتراحات قبل التنفيذ تُختار ثم يُوافق عليها قبل التنفيذ.
@@ -54,6 +58,7 @@ rules/
 - [[rules-prod-invisible]] — اعتبار `prod` غير مرئي لأي وكيل: لا دمج ولا دفع ولا تعديل ولا استعادة ولا ذكر.
 - [[rules-testing-environments]] — كل الاختبارات والتجارب على بيئة `dev` فقط، ومنع أي اختبار على بيئة الإنتاج.
 - [[rules-task-planning]] — بدء المهمة بخطة مكونة من 2–4 خطوات ذرية، مع تأكيد المستخدم قبل التنفيذ.
+- [[rules-google-stitch-design]] — طلب تصاميل من Google Stitch عند الحاجة إلى تصميم؛ معظم المشاريع لدينا لديها مشروع Stitch باسم مطابق تقريبًا.
 
 ## قواعد إضافة ملف جديد
 1. ضعه في المجلد الذي يطابق اختصاصه، وإن لم يوجد مجلد مناسب أنشئ واحدًا باسم واضح.

@@ -1,67 +1,11 @@
 ---
-name: branch-cleanup
-description: Clean up local branches that are merged or have been removed from remote
+name: rules-branch-cleanup-advanced
+description: Advanced branch cleanup — delete merged-in-base branches, set up the cleanup alias, and attach post-checkout/post-merge hooks
 metadata:
   type: feedback
 ---
 
-# تنظيف الفروع المحلية (Branch Cleanup Rules)
-
-تُعنى هذه القواعد بحفظ نظافة المستودع المحلي وجعله يطابق الحالة الحالية للمستودع البعيد (`origin`) فقط، وذلك بحذف الفروع المحلية التي:
-1. أصبحت **`[gone]`** بعد حذف فرعها من Remote.
-2. تمت **دمجها** بالكامل في فرع الأساس (مثل `main` أو `dev`).
-
----
-
-## قاعدة صارمة: الفروع المحمية (لا تُحذف أبداً)
-
-- **يُمنع منعاً باتاً** حذف الفرعين `dev` و`prod`، محلياً (`git branch -d/-D`) أو عن بُعد (`git push origin --delete`)، تحت أي ظرف.
-- ينطبق المنع على كل الوكلاء وأي أدوات تنظيف تلقائية (Aliases / Hooks / Scripts).
-- أي أمر تنظيف يجب أن يستثني `dev` و`prod` صراحةً قبل التنفيذ.
-- إذا طُلب حذف أحدهما، ارفض الطلب ولا تنفّذ أي أمر حذف.
-
----
-
-## الخطوة 1: مزامنة وحذف مراجع الفروع المحذوفة من Remote
-
-قبل أي عملية حذف، يجب تحديث قائمة الفروع البعيدة والتخلص من أي مراجع لم تعد موجودة:
-
-```bash
-# تحديث المراجع وحذف الفروع المحذوفة من Remote مرة واحدة:
-git fetch --prune
-
-# لجعل عملية الحذف التلقائية تحدث مع كل fetch أو pull (يوصى بتفعيلها globally):
-git config --global fetch.prune true
-```
-
-**التحقق:** سيطبع Git أسطراً مثل `x [deleted] origin/اسم-الفرع` لأي فرع تم حذفه من المستودع البعيد.
-
----
-
-## الخطوة 2: حذف الفروع المحلية التي أصبحت `[gone]`
-
-بعد الخطوة 1، يتم إعلام Git أن الفروع المحلية التي كان فرعها البعيد موجوداً ثم حُذف صارت حالتها **`[gone]`**.
-
-### معاينة الفروع المرشحة للحذف (آمن - لا يحذف شيئاً):
-```bash
-git branch -vv | grep ': gone]'
-```
-
-### الحذف التلقائي لهذه الفروع (يحذف الفروع المدمجة بأمان باستخدام `-d`):
-```bash
-git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(dev|prod)$' | xargs -r git branch -d
-```
-
-> **ملاحظة هامة:** استخدام `-d` يحذف الفرع فقط إذا كان مدمجاً (merged) في الفرع الحالي.  
-> إذا كان الفرع قد حُذف من Remote بعد عمل **Squash merge**، فقد يرفض `-d` ويطالب باستخدام `-D` لأن Git لا يرى التغييرات كـ ancestor مباشر بنفس الـ commit hash.  
-> **قاعدة استعمال:** إذا كنت تعتمد على Squash and merge في Pull Requests، يفضل استخدام `-D` للتأكد من الحذف، أو التحقق يدوياً من كل فرع.
-
-### الحذف الجبري (احذر - يمحى الفرع نهائياً حتى لو كان غير مدمج):
-```bash
-git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(dev|prod)$' | xargs -r git branch -D
-```
-
----
+# تنظيف الفروع المتقدم (Advanced Branch Cleanup)
 
 ## الخطوة 3: حذف الفروع المحلية المدمجة في فرع الأساس
 
@@ -72,7 +16,7 @@ git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(dev|prod)$' | x
 git branch --merged main | grep -vE '^\*|^\s*(main|master|dev|prod)$'
 ```
 
-### الحذف الدفعة الواحدة بعد التأكد:
+### الحذف الدفعة الواحدة بعد التأكيد:
 ```bash
 git branch --merged main | grep -vE '^\*|^\s*(main|master|dev|prod)$' | xargs -r git branch -d
 ```
@@ -81,8 +25,6 @@ git branch --merged main | grep -vE '^\*|^\s*(main|master|dev|prod)$' | xargs -r
 > عند استخدام **Squash and merge** في Pull Requests، فإن الـ commits تُطبق على فرع الأساس كـ commits جديدة دون إنشاء Merge commit.  
 > هنا قد يبدو الفرع المحلي **غير مدمج** في نظر `git branch -d` حتى لو كانت التغييرات داخل `main`، لأن Git لا يرى أن الـ commit الخاص بالفرع هو ancestor مباشر لـ main.  
 > **الحل:** في حال استخدام Squash merge، يعتمد الحذف على التحقق اليدوي من أن التغييرات موجودة في branch الأساسي، أو استخدام `git branch -D` بحذر بعد التأكد من عدم الحاجة للفرع.
-
----
 
 ## الخطوة 4: تحويل التنظيف إلى أمر واحد (Git Alias)
 
@@ -104,14 +46,12 @@ git cleanup
 3. `awk '{print $1}'` → استخراج اسم الفرع من كل سطر.
 4. `xargs -r git branch -D` → الحذف الجبري لهذه الفروع.
 
----
-
 ## الخطوة 5: دمج مع هووكات التشغيل التلقائي (Optional)
 
 يمكنك ربط عملية التنظيف بالعمل التلقائي عند تغيير الفروع أو الدمج المحلي:
 
 ### هووكا `post-checkout` و `post-merge`
-أنشئ الملفين `~/my-git/hooks/post-checkout` و `~/my-git/hooks/post-merge` بالمحتوى ذاته:
+أنشئ الملفين `~/my-git/hooks/post-checkout` و`~/my-git/hooks/post-merge` بالمحتوى ذاته:
 ```bash
 #!/bin/bash
 git cleanup
@@ -124,8 +64,6 @@ chmod +x ~/my-git/hooks/post-checkout ~/my-git/hooks/post-merge
 
 > **تنبيه:** ربط الهووكات بالعمل التلقائي قد يحذف فروعاً فجأة أثناء تبديل الفرع، لذا تأكد من فهمك للأمر `git cleanup` أولاً قبل تمكينه تلقائياً.
 
----
-
 ## ملخص الإجراءات العملية
 
 | الخطوة | الأمر | الهدف |
@@ -135,8 +73,6 @@ chmod +x ~/my-git/hooks/post-checkout ~/my-git/hooks/post-merge
 | 3 | `git branch -vv \| grep ': gone]' \| awk '{print $1}' \| grep -vE '^(dev\|prod)$' \| xargs -r git branch -D` | حذف الفروع gone تلقائياً (باستثناء dev/prod) |
 | 4 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev\|prod)$'` | عرض الفروع المحلية المدمجة (باستثناء المحمية) |
 | 5 | `git branch --merged main \| grep -vE '^\*\|^\s*(main\|master\|dev\|prod)$' \| xargs -r git branch -d` | حذف الفروع المدمجة (باستثناء المحمية) |
-
----
 
 ## اعتبارات مهمة (Important Considerations)
 
