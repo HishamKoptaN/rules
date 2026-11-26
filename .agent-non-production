@@ -1,0 +1,5 @@
+# Non-production agent flag
+
+Presence of this file at the repository root means the project is NOT in production.
+
+AI agents may work normally: create task branches, merge them into `dev` after tests pass, and delete branches locally and remotely — without opening pull requests. See [[rules-non-production-mode]].
