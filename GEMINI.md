@@ -68,6 +68,7 @@ Each rule group lives in its own folder by specialty.
 @[BLoC Rules](architecture/rules-bloc.md)
 @[File Structure Rules](architecture/rules-file-structure.md)
 @[Action Button Rules](architecture/rules-action-buttons.md)
+@[Architecture Decision Records](architecture/adr/rules-adr.md)
 
 ## `code-style/` — Language & Styling
 @[Dart Syntax Rules](code-style/rules-dart-syntax.md)
