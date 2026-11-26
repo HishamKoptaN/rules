@@ -18,6 +18,7 @@ Baseline: Dart `^3.13.5` / Flutter `3.47.7` (أحدث ما تستخدمه الم
 | Concern | Package | Version |
 | --- | --- | --- |
 | State management | `flutter_bloc` | `^9.0.0` |
+| Material widgets (Flutter 3.50+) | `material_ui` | `^1.11.1` |
 | Event concurrency | `bloc_concurrency` | `^0.3.0` |
 | State persistence | `hydrated_bloc` | `^11.0.0` |
 | Form validation | `formz` | `^0.8.0` |
