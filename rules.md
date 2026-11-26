@@ -32,6 +32,7 @@ rules/
 - [[rules-worktrees]] — إدارة worktrees المتعددة: إنشاء worktree منفصل لكل مهمة بدل تبديل الفروع.
 - [[rules-branch-cleanup-advanced]] — خطوات متقدمة: حذف الفروع المدمجة، الـ alias للتنظيف، والهووكات التلقائية.
 - [[rules-pull-before-modify]] — قبل أي تعديل: سحب آخر نسخة من dev من origin لمنع التضارب، خاصة في worktrees المنفصلة.
+- [[rules-commit-file-limit]] — سقف 5 ملفات معدّلة لكل commit، والتقسيم إلى commits متتالية عند التجاوز.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.

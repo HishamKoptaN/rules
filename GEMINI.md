@@ -63,6 +63,7 @@ Each rule group lives in its own folder by specialty.
 @[Worktree Rules](git/worktrees/rules-worktrees.md)
 @[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
 @[Pull Before Modify](git/rules-pull-before-modify.md)
+@[Commit File Limit Rule](git/commit-limits/rules-commit-file-limit.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
