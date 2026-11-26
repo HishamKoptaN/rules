@@ -30,6 +30,7 @@ rules/
 - [[rules-branch-cleanup]] — حذف الفروع المحلية التي أصبحت `[gone]` أو مدمجة في الفرع الأساس، مع منع نهائي لحذف `dev` و`prod`.
 - [[rules-branch-cleanup-advanced]] — خطوات متقدمة: حذف الفروع المدمجة، الـ alias للتنظيف، والهووكات التلقائية.
 - [[rules-pull-before-modify]] — قبل أي تعديل: سحب آخر نسخة من dev من origin لمنع التضارب، خاصة في worktrees المنفصلة.
+- [[rules-commit-file-limit]] — سقف 5 ملفات معدّلة لكل commit، والتقسيم إلى commits متتالية عند التجاوز.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.
