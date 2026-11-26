@@ -1,3 +1,10 @@
+---
+name: rules-rate-limits
+description: When an AI agent encounters rate limit errors (429 etc.), it must wait, back off and retry automatically instead of failing prematurely
+metadata:
+  type: feedback
+---
+
 # Rate Limits & Auto-Retry Rule
 
 When an AI agent encounters API rate limit errors (such as HTTP `429`, `Quota exceeded`, or messages like `Please retry in ...s`):
