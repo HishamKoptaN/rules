@@ -63,6 +63,7 @@ Each rule group lives in its own folder by specialty.
 @[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
 @[Pull Before Modify](git/rules-pull-before-modify.md)
 @[No Secrets Rule](git/security/rules-no-secrets.md)
+@[Lint Before Push Rule](git/quality/rules-lint-before-push.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)

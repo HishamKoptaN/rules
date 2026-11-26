@@ -31,6 +31,7 @@ rules/
 - [[rules-branch-cleanup-advanced]] — خطوات متقدمة: حذف الفروع المدمجة، الـ alias للتنظيف، والهووكات التلقائية.
 - [[rules-pull-before-modify]] — قبل أي تعديل: سحب آخر نسخة من dev من origin لمنع التضارب، خاصة في worktrees المنفصلة.
 - [[rules-no-secrets]] — منع تضمين مفاتيح API وكلمات المرور وملفات `.env` في أي commit.
+- [[rules-lint-before-push]] — تشغيل `scripts/lint-rules.sh` والتحقق من نجاحه قبل دفع أي فرع.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.
