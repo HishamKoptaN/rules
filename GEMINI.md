@@ -101,3 +101,4 @@ Each rule group lives in its own folder by specialty.
 @[Task Planning Rule](meta/planning/rules-task-planning.md)
 @[Google Stitch Design Rule](meta/design/rules-google-stitch-design.md)
 @[Change Summary Rule](meta/summary/rules-change-summary.md)
+@[Non-Production Mode Rule](meta/flags/rules-non-production-mode.md)
