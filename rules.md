@@ -38,10 +38,12 @@ rules/
 - [[rules-bloc]] — توجيهات `part` وإرسال الأحداث عبر GetIt.
 - [[rules-file-structure]] — حد 100 سطر للملف وعتبة 4 ملفات لتقسيم المجلد.
 - [[rules-action-buttons]] — تفعيل أزرار الإجراء ومنطق `hasChanges` في الـ Entity.
+- [[rules-adr]] — توثيق القرارات المعمارية في سجل ADR مختصر قبل التنفيذ.
 
 ## `code-style/` — Language & Styling
 - [[rules-dart-syntax]] — block bodies إلزامية و dot shorthand.
 - [[rules-theming]] — صفر ألوان أو أنماط نصية مكتوبة يدويًا؛ كل شيء من الـ Theme.
+- [[rules-dead-code-cleanup]] — حذف الكود غير المستخدم والـ imports غير الضرورية قبل الـ commit.
 
 ## `ui/` — Layout & Components
 - [[rules-responsive]] — تصميم Mobile-first أولًا، ثم تكيف الويب/التابلت مع امتدادات ScreenUtil.
@@ -53,13 +55,14 @@ rules/
 - [[rules-packages-add-ons]] — dev dependencies، حزم الميزات، الحزم الممنوعة، وقواعد إضافة الحزم.
 
 ## `meta/` — Agent Behavior
-- [[suggestions]] — اقتراحات تفاعلية: إجراءات بعد المهمة تُنفَّذ بالنقر، واقتراحات قبل التنفيذ تُختار ثم يُوافق عليها قبل التنفيذ.
+- [[suggestions]] — اقتراحات تفاعلية متعددة الاختيار (`multiple: true`): تُنفَّذ كل الخيارات المختارة معاً بعد الموافقة، واقتراحات ما قبل التنفيذ تُختار ثم يُوافق عليها قبل التنفيذ.
 - [[rules-rate-limits]] — التعامل التلقائي مع حدود المعدل (Rate Limits) وأخطاء 429.
 - [[rules-post-task-review]] — مراجعة المشروع بعد كل مهمة (flutter analyze) وإصلاح الأخطاء.
 - [[rules-prod-invisible]] — اعتبار `prod` غير مرئي لأي وكيل: لا دمج ولا دفع ولا تعديل ولا استعادة ولا ذكر.
 - [[rules-testing-environments]] — كل الاختبارات والتجارب على بيئة `dev` فقط، ومنع أي اختبار على بيئة الإنتاج.
 - [[rules-task-planning]] — بدء المهمة بخطة مكونة من 2–4 خطوات ذرية، مع تأكيد المستخدم قبل التنفيذ.
 - [[rules-google-stitch-design]] — طلب تصاميل من Google Stitch عند الحاجة إلى تصميم؛ معظم المشاريع لدينا لديها مشروع Stitch باسم مطابق تقريبًا.
+- [[rules-change-summary]] — ملخص مختصر للتغييرات مع كل commit وربطه بالـ PR.
 
 ## قواعد إضافة ملف جديد
 1. ضعه في المجلد الذي يطابق اختصاصه، وإن لم يوجد مجلد مناسب أنشئ واحدًا باسم واضح.

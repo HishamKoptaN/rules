@@ -69,10 +69,12 @@ Each rule group lives in its own folder by specialty.
 @[BLoC Rules](architecture/rules-bloc.md)
 @[File Structure Rules](architecture/rules-file-structure.md)
 @[Action Button Rules](architecture/rules-action-buttons.md)
+@[Architecture Decision Records](architecture/adr/rules-adr.md)
 
 ## `code-style/` — Language & Styling
 @[Dart Syntax Rules](code-style/rules-dart-syntax.md)
 @[Theme-Driven Styling Rules](code-style/rules-theming.md)
+@[Dead Code Cleanup Rules](code-style/rules-dead-code-cleanup.md)
 
 ## `ui/` — Layout & Components
 @[Responsive Design Rules (Mobile-First)](ui/rules-responsive.md)
@@ -84,10 +86,11 @@ Each rule group lives in its own folder by specialty.
 @[Packages Add-Ons](packages/rules-packages-add-ons.md)
 
 ## `meta/` — Agent Behavior
-@[Suggestions & Approval Flow](meta/suggestions.md)
+@[Suggestions & Approval Flow (multi-select + batch execute)](meta/suggestions.md)
 @[Rate Limits & Auto-Retry](meta/rules-rate-limits.md)
 @[Post-Task Project Review](meta/rules-post-task-review.md)
 @[Prod Branch Invisible](meta/rules-prod-invisible.md)
 @[Testing Environment Rule](meta/testing/rules-testing-environments.md)
 @[Task Planning Rule](meta/planning/rules-task-planning.md)
 @[Google Stitch Design Rule](meta/design/rules-google-stitch-design.md)
+@[Change Summary Rule](meta/summary/rules-change-summary.md)
