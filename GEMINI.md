@@ -60,6 +60,7 @@ Each rule group lives in its own folder by specialty.
 @[Git Granularity & PR Size](git/rules-git-granularity.md)
 @[Pull Requests Auto-Created](git/rules-pull-requests.md)
 @[Branch Cleanup](git/branch-cleanup/rules-branch-cleanup.md)
+@[Worktree Rules](git/worktrees/rules-worktrees.md)
 @[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
 @[Pull Before Modify](git/rules-pull-before-modify.md)
 
