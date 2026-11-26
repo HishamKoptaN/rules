@@ -35,6 +35,7 @@ rules/
 - [[rules-no-secrets]] — منع تضمين مفاتيح API وكلمات المرور وملفات `.env` في أي commit.
 - [[rules-lint-before-push]] — تشغيل `scripts/lint-rules.sh` والتحقق من نجاحه قبل دفع أي فرع.
 - [[rules-commit-file-limit]] — سقف 5 ملفات معدّلة لكل commit، والتقسيم إلى commits متتالية عند التجاوز.
+- [[rules-merge-into-dev]] — دمج فرع المهمة في dev أولاً لتمر الاختبارات، ثم حذفه محلياً وعن بُعد بعد الدمج.
 
 ## `architecture/` — Structure & State
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.
