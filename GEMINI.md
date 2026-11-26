@@ -91,3 +91,4 @@ Each rule group lives in its own folder by specialty.
 @[Prod Branch Invisible](meta/rules-prod-invisible.md)
 @[Testing Environment Rule](meta/testing/rules-testing-environments.md)
 @[Google Stitch Design Rule](meta/design/rules-google-stitch-design.md)
+@[Change Summary Rule](meta/summary/rules-change-summary.md)
