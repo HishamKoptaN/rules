@@ -60,18 +60,22 @@ Each rule group lives in its own folder by specialty.
 @[Git Granularity & PR Size](git/rules-git-granularity.md)
 @[Pull Requests Auto-Created](git/rules-pull-requests.md)
 @[Branch Cleanup](git/branch-cleanup/rules-branch-cleanup.md)
+@[Worktree Rules](git/worktrees/rules-worktrees.md)
 @[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
 @[Pull Before Modify](git/rules-pull-before-modify.md)
+@[Commit File Limit Rule](git/commit-limits/rules-commit-file-limit.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
 @[BLoC Rules](architecture/rules-bloc.md)
 @[File Structure Rules](architecture/rules-file-structure.md)
 @[Action Button Rules](architecture/rules-action-buttons.md)
+@[Architecture Decision Records](architecture/adr/rules-adr.md)
 
 ## `code-style/` — Language & Styling
 @[Dart Syntax Rules](code-style/rules-dart-syntax.md)
 @[Theme-Driven Styling Rules](code-style/rules-theming.md)
+@[Dead Code Cleanup Rules](code-style/rules-dead-code-cleanup.md)
 
 ## `ui/` — Layout & Components
 @[Responsive Design Rules (Mobile-First)](ui/rules-responsive.md)
@@ -89,4 +93,7 @@ Each rule group lives in its own folder by specialty.
 @[Prod Branch Invisible](meta/rules-prod-invisible.md)
 @[Testing Environment Rule](meta/testing/rules-testing-environments.md)
 @[Minimum Test Coverage Rule](meta/testing/rules-min-test-coverage.md)
+@[Test All Parts Rule](meta/testing/rules-test-all-parts.md)
+@[Task Planning Rule](meta/planning/rules-task-planning.md)
 @[Google Stitch Design Rule](meta/design/rules-google-stitch-design.md)
+@[Change Summary Rule](meta/summary/rules-change-summary.md)
