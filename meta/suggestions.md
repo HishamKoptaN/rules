@@ -16,6 +16,7 @@ At the end of every completed task or response, you MUST provide 2 to 3 concise,
 - If the chosen action needs another decision, present the next set of options with the same interactive tool.
 - Standing git rules still apply: only offer merge or destructive actions when already authorized by the user or by the rules.
 - Never offer PR creation as a suggestion — pull requests are created automatically on push; see [[rules-pull-requests]].
+- NEVER offer branch cleanup or deletion of merged branches as a suggestion or an option — the agent MUST perform it automatically as soon as a branch is merged into `dev` (or becomes `[gone]`), without asking for confirmation or a click; see [[rules-branch-cleanup]] and [[rules-merge-into-dev]].
 
 ## Style
 - Keep options short so the user can quickly tap them on mobile without typing.

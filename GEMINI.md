@@ -66,6 +66,7 @@ Each rule group lives in its own folder by specialty.
 @[No Secrets Rule](git/security/rules-no-secrets.md)
 @[Lint Before Push Rule](git/quality/rules-lint-before-push.md)
 @[Commit File Limit Rule](git/commit-limits/rules-commit-file-limit.md)
+@[Merge Into Dev Rule](git/merge-flow/rules-merge-into-dev.md)
 
 ## `architecture/` — Structure & State
 @[Architecture & Feature Conventions](architecture/architecture.md)
