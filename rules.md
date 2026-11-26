@@ -32,6 +32,8 @@ rules/
 - [[rules-worktrees]] — إدارة worktrees المتعددة: إنشاء worktree منفصل لكل مهمة بدل تبديل الفروع.
 - [[rules-branch-cleanup-advanced]] — خطوات متقدمة: حذف الفروع المدمجة، الـ alias للتنظيف، والهووكات التلقائية.
 - [[rules-pull-before-modify]] — قبل أي تعديل: سحب آخر نسخة من dev من origin لمنع التضارب، خاصة في worktrees المنفصلة.
+- [[rules-no-secrets]] — منع تضمين مفاتيح API وكلمات المرور وملفات `.env` في أي commit.
+- [[rules-lint-before-push]] — تشغيل `scripts/lint-rules.sh` والتحقق من نجاحه قبل دفع أي فرع.
 - [[rules-commit-file-limit]] — سقف 5 ملفات معدّلة لكل commit، والتقسيم إلى commits متتالية عند التجاوز.
 
 ## `architecture/` — Structure & State
@@ -44,6 +46,7 @@ rules/
 ## `code-style/` — Language & Styling
 - [[rules-dart-syntax]] — block bodies إلزامية و dot shorthand.
 - [[rules-theming]] — صفر ألوان أو أنماط نصية مكتوبة يدويًا؛ كل شيء من الـ Theme.
+- [[rules-documentation-language]] — التوثيق والتعليقات بالعربية، ومعرّفات Dart/Flutter بالإنجليزية.
 - [[rules-dead-code-cleanup]] — حذف الكود غير المستخدم والـ imports غير الضرورية قبل الـ commit.
 
 ## `ui/` — Layout & Components

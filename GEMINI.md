@@ -63,6 +63,8 @@ Each rule group lives in its own folder by specialty.
 @[Worktree Rules](git/worktrees/rules-worktrees.md)
 @[Branch Cleanup Advanced](git/branch-cleanup/rules-branch-cleanup-advanced.md)
 @[Pull Before Modify](git/rules-pull-before-modify.md)
+@[No Secrets Rule](git/security/rules-no-secrets.md)
+@[Lint Before Push Rule](git/quality/rules-lint-before-push.md)
 @[Commit File Limit Rule](git/commit-limits/rules-commit-file-limit.md)
 
 ## `architecture/` — Structure & State
@@ -75,6 +77,7 @@ Each rule group lives in its own folder by specialty.
 ## `code-style/` — Language & Styling
 @[Dart Syntax Rules](code-style/rules-dart-syntax.md)
 @[Theme-Driven Styling Rules](code-style/rules-theming.md)
+@[Documentation Language Rule](code-style/rules-documentation-language.md)
 @[Dead Code Cleanup Rules](code-style/rules-dead-code-cleanup.md)
 
 ## `ui/` — Layout & Components
