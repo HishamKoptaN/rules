@@ -42,6 +42,7 @@ rules/
 ## `code-style/` — Language & Styling
 - [[rules-dart-syntax]] — block bodies إلزامية و dot shorthand.
 - [[rules-theming]] — صفر ألوان أو أنماط نصية مكتوبة يدويًا؛ كل شيء من الـ Theme.
+- [[rules-documentation-language]] — التوثيق والتعليقات بالعربية، ومعرّفات Dart/Flutter بالإنجليزية.
 
 ## `ui/` — Layout & Components
 - [[rules-responsive]] — تصميم Mobile-first أولًا، ثم تكيف الويب/التابلت مع امتدادات ScreenUtil.
