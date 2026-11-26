@@ -46,6 +46,7 @@ rules/
 ## `code-style/` — Language & Styling
 - [[rules-dart-syntax]] — block bodies إلزامية و dot shorthand.
 - [[rules-theming]] — صفر ألوان أو أنماط نصية مكتوبة يدويًا؛ كل شيء من الـ Theme.
+- [[rules-resource-cleanup]] — تنظيف controllers وsubscriptions عند حذف widget أو bloc.
 - [[rules-documentation-language]] — التوثيق والتعليقات بالعربية، ومعرّفات Dart/Flutter بالإنجليزية.
 - [[rules-dead-code-cleanup]] — حذف الكود غير المستخدم والـ imports غير الضرورية قبل الـ commit.
 

@@ -77,6 +77,7 @@ Each rule group lives in its own folder by specialty.
 ## `code-style/` — Language & Styling
 @[Dart Syntax Rules](code-style/rules-dart-syntax.md)
 @[Theme-Driven Styling Rules](code-style/rules-theming.md)
+@[Resource Cleanup Rule](code-style/resources/rules-resource-cleanup.md)
 @[Documentation Language Rule](code-style/rules-documentation-language.md)
 @[Dead Code Cleanup Rules](code-style/rules-dead-code-cleanup.md)
 
