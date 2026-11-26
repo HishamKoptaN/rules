@@ -56,6 +56,7 @@ rules/
 - [[rules-post-task-review]] — مراجعة المشروع بعد كل مهمة (flutter analyze) وإصلاح الأخطاء.
 - [[rules-prod-invisible]] — اعتبار `prod` غير مرئي لأي وكيل: لا دمج ولا دفع ولا تعديل ولا استعادة ولا ذكر.
 - [[rules-testing-environments]] — كل الاختبارات والتجارب على بيئة `dev` فقط، ومنع أي اختبار على بيئة الإنتاج.
+- [[rules-test-all-parts]] — إضافة اختبارات منطقية (unit، bloc، repository، widget، integration) لجميع أجزاء المشروع وطبقاته.
 - [[rules-google-stitch-design]] — طلب تصاميل من Google Stitch عند الحاجة إلى تصميم؛ معظم المشاريع لدينا لديها مشروع Stitch باسم مطابق تقريبًا.
 
 ## قواعد إضافة ملف جديد

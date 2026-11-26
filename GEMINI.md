@@ -88,4 +88,5 @@ Each rule group lives in its own folder by specialty.
 @[Post-Task Project Review](meta/rules-post-task-review.md)
 @[Prod Branch Invisible](meta/rules-prod-invisible.md)
 @[Testing Environment Rule](meta/testing/rules-testing-environments.md)
+@[Test All Parts Rule](meta/testing/rules-test-all-parts.md)
 @[Google Stitch Design Rule](meta/design/rules-google-stitch-design.md)
