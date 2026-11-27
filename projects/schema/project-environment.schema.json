@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/HishamKoptaN/rules/main/projects/schema/project-environment.schema.json",
+  "title": "Project Environment Manifest",
+  "description": "Declares how a project is hosted, its environments, URLs and deploy settings so AI agents follow the real conventions",
+  "type": "object",
+  "required": ["name", "kind", "repository", "envSelection", "environments"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "name": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["flutter_web", "flutter_app", "laravel_api", "node_api"] },
+    "repository": { "type": "string", "format": "uri" },
+    "devBranch": { "type": "string", "default": "dev" },
+    "prodBranch": { "type": "string", "default": "prod" },
+    "envSelection": {
+      "type": "object",
+      "required": ["mechanism", "variable", "defaultEnvironment"],
+      "additionalProperties": false,
+      "properties": {
+        "mechanism": { "enum": ["dart-define", "flavor", "dotenv", "github-environment"] },
+        "variable": { "type": "string", "examples": ["ENV", "FLUTTER_ENV"] },
+        "defaultEnvironment": { "type": "string", "default": "dev" }
+      }
+    },
+    "flutter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "envInterface": { "type": "string", "examples": ["lib/config/env.dart"] },
+        "devEnv": { "type": "string", "examples": ["lib/config/envs/dev_env.dart"] },
+        "prodEnv": { "type": "string", "examples": ["lib/config/envs/prod_env.dart"] },
+        "localDevUrl": { "type": "string", "format": "uri", "examples": ["http://127.0.0.1:8000/api"] }
+      }
+    },
+    "firebase": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "projects": {
+          "type": "object",
+          "required": ["default", "dev", "prod"],
+          "additionalProperties": { "type": "string" }
+        },
+        "hostingTargets": {
+          "type": "object",
+          "description": "mirrors .firebaserc targets: { projectId: { hosting: { target: [site] } } }",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "hosting": {
+                "type": "object",
+                "additionalProperties": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "publicDir": { "type": "string", "default": "build/web" },
+        "channelId": { "type": "string", "default": "live" },
+        "buildCommand": { "type": "string", "examples": ["flutter build web --release --dart-define=ENV=dev"] }
+      }
+    },
+    "environments": {
+      "type": "object",
+      "required": ["dev", "prod"],
+      "additionalProperties": { "$ref": "#/$defs/environment" },
+      "properties": {
+        "dev": { "$ref": "#/$defs/environment" },
+        "staging": { "$ref": "#/$defs/environment" },
+        "prod": { "$ref": "#/$defs/environment" }
+      }
+    }
+  },
+  "$defs": {
+    "environment": {
+      "type": "object",
+      "required": ["name", "hosting", "url", "isProduction", "testingAllowed"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "enum": ["dev", "staging", "prod"] },
+        "hosting": {
+          "type": "object",
+          "required": ["provider"],
+          "additionalProperties": false,
+          "properties": {
+            "provider": {
+              "enum": ["firebase-hosting", "hostinger-sftp", "vercel", "custom-domain", "cloud-run"]
+            },
+            "projectId": { "type": "string" },
+            "target": { "type": "string" },
+            "domain": { "type": "string" },
+            "path": { "type": "string", "description": "public_html subpath for shared hosting" },
+            "workflow": { "type": "string", "description": ".github/workflows file that deploys this environment" }
+          }
+        },
+        "url": { "type": "string", "format": "uri" },
+        "apiBaseUrl": { "type": "string", "format": "uri" },
+        "adminUrl": { "type": "string", "format": "uri" },
+        "authUrl": { "type": "string", "format": "uri" },
+        "docsUrl": { "type": "string", "format": "uri" },
+        "isProduction": { "type": "boolean" },
+        "testingAllowed": { "type": "boolean", "description": "true only for dev" },
+        "secretRefs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "GitHub secret names only — never their values"
+        }
+      }
+    }
+  }
+}
