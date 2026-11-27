@@ -74,6 +74,7 @@ Each rule group lives in its own folder by specialty.
 @[File Structure Rules](architecture/rules-file-structure.md)
 @[Action Button Rules](architecture/rules-action-buttons.md)
 @[Architecture Decision Records](architecture/adr/rules-adr.md)
+@[Parallel Worktrees ADR](architecture/adr/0001-parallel-worktrees.md)
 
 ## `code-style/` — Language & Styling
 @[Dart Syntax Rules](code-style/rules-dart-syntax.md)

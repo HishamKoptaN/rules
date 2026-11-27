@@ -45,6 +45,7 @@ rules/
 - [[rules-file-structure]] — حد 100 سطر للملف وعتبة 4 ملفات لتقسيم المجلد.
 - [[rules-action-buttons]] — تفعيل أزرار الإجراء عند وجود تغيير فعلي **و** صحة كل الحقول المطلوبة، مع المنطق في الـ Entity.
 - [[rules-adr]] — توثيق القرارات المعمارية في سجل ADR مختصر قبل التنفيذ.
+- [[0001-parallel-worktrees]] — worktree وفرع مستقل لكل مهمة متوازية لتجنب التضارب.
 
 ## `code-style/` — Language & Styling
 - [[rules-dart-syntax]] — block bodies إلزامية و dot shorthand.
