@@ -21,4 +21,4 @@ jobs:
           pr_body: |
             :crown: *An automated PR created by AI Agent / GitHub Actions*
             This pull request was automatically generated for branch `${{ github.ref }}`.
-          github_token: ${{ secrets.GITHUB_TOKEN }}         
+          github_token: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
