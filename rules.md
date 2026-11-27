@@ -18,6 +18,7 @@ rules/
 ├── code-style/                # صياغة Dart والتنسيق المعتمد على الـ Theme
 ├── ui/                        # التجاوب والتصميم والعناصر المرئية
 ├── packages/                  # الحزم والإصدارات وملف pubspec
+├── projects/                  # طوبولوجيا المشاريع: استضافة وبيئات وروابط
 └── meta/                      # سلوك الوكيل قبل وبعد المهام
     ├── design/                # طلب تصاميل Google Stitch عند الحاجة إلى تصميم
     ├── planning/              # بدء المهمة بخطة مع تأكيد
@@ -59,6 +60,9 @@ rules/
 ## `packages/` — Stack & Dependencies
 - [[rules-packages]] — حزم الـ Baseline، حزمك الداخلية، dev dependencies، والحزم الممنوعة.
 - [[rules-packages-add-ons]] — dev dependencies، حزم الميزات، الحزم الممنوعة، وقواعد إضافة الحزم.
+
+## `projects/` — Project Topology
+- [[rules-project-topology]] — طوبولوجيا المشاريع: الاستضافة والبيئات والروابط ومخطط الـ manifest الذي يتبعه الوكلاء.
 
 ## `meta/` — Agent Behavior
 - [[suggestions]] — اقتراحات تفاعلية متعددة الاختيار (`multiple: true`): تُنفَّذ كل الخيارات المختارة معاً بعد الموافقة، واقتراحات ما قبل التنفيذ تُختار ثم يُوافق عليها قبل التنفيذ.

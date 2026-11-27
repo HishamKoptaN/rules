@@ -1,0 +1,65 @@
+{
+  "$schema": "./project-environment.schema.json",
+  "name": "example_app",
+  "kind": "flutter_web",
+  "repository": "https://github.com/example/example_app",
+  "devBranch": "dev",
+  "prodBranch": "prod",
+  "envSelection": {
+    "mechanism": "dart-define",
+    "variable": "ENV",
+    "defaultEnvironment": "dev"
+  },
+  "flutter": {
+    "envInterface": "lib/config/env.dart",
+    "devEnv": "lib/config/envs/dev_env.dart",
+    "prodEnv": "lib/config/envs/prod_env.dart",
+    "localDevUrl": "http://127.0.0.1:8000/api"
+  },
+  "firebase": {
+    "projects": {
+      "default": "example-app-dev",
+      "dev": "example-app-dev",
+      "prod": "example-app"
+    },
+    "hostingTargets": {
+      "example-app-dev": { "hosting": { "dev": ["example-app-dev"] } },
+      "example-app": { "hosting": { "prod": ["example-app"] } }
+    },
+    "publicDir": "build/web",
+    "channelId": "live",
+    "buildCommand": "flutter build web --release --dart-define=ENV=dev"
+  },
+  "environments": {
+    "dev": {
+      "name": "dev",
+      "hosting": {
+        "provider": "firebase-hosting",
+        "projectId": "example-app-dev",
+        "target": "dev",
+        "workflow": ".github/workflows/firebase-hosting-merge.yml"
+      },
+      "url": "https://example-app-dev.web.app",
+      "apiBaseUrl": "http://127.0.0.1:8000/api",
+      "isProduction": false,
+      "testingAllowed": true,
+      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT"]
+    },
+    "prod": {
+      "name": "prod",
+      "hosting": {
+        "provider": "custom-domain",
+        "domain": "example.com",
+        "path": "/",
+        "workflow": ".github/workflows/prod_deploy.yml"
+      },
+      "url": "https://example.com",
+      "apiBaseUrl": "https://example.com/api",
+      "adminUrl": "https://example.com/api/admin/",
+      "authUrl": "https://example.com/api/auth/",
+      "isProduction": true,
+      "testingAllowed": false,
+      "secretRefs": ["SSH_PRIVATE_KEY", "FTP_USERNAME", "FTP_PASSWORD"]
+    }
+  }
+}

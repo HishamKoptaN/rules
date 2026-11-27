@@ -91,6 +91,9 @@ Each rule group lives in its own folder by specialty.
 @[Stack Packages & pubspec Baseline](packages/rules-packages.md)
 @[Packages Add-Ons](packages/rules-packages-add-ons.md)
 
+## `projects/` — Project Topology
+@[Project Topology Rules](projects/rules-project-topology.md)
+
 ## `meta/` — Agent Behavior
 @[Suggestions & Approval Flow (multi-select + batch execute)](meta/suggestions.md)
 @[Rate Limits & Auto-Retry](meta/rules-rate-limits.md)

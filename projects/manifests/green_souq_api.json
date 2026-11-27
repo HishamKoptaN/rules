@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/project-environment.schema.json",
+  "name": "green_souq_api",
+  "kind": "laravel_api",
+  "repository": "https://github.com/HishamKoptaN/green_souq_api.git",
+  "envSelection": {
+    "mechanism": "dotenv",
+    "variable": "APP_ENV",
+    "defaultEnvironment": "dev"
+  },
+  "environments": {
+    "dev": {
+      "name": "dev",
+      "hosting": { "provider": "custom-domain", "domain": "localhost", "path": "/" },
+      "url": "http://localhost:8000",
+      "apiBaseUrl": "http://localhost:8000",
+      "isProduction": false,
+      "testingAllowed": true,
+      "secretRefs": []
+    },
+    "prod": {
+      "name": "prod",
+      "hosting": {
+        "provider": "hostinger-sftp",
+        "domain": "springgreen-turtle-355093.hostingersite.com",
+        "path": "/",
+        "workflow": ".github/workflows/deploy.yaml"
+      },
+      "url": "https://springgreen-turtle-355093.hostingersite.com",
+      "apiBaseUrl": "https://springgreen-turtle-355093.hostingersite.com",
+      "isProduction": true,
+      "testingAllowed": false,
+      "secretRefs": ["SSH_PRIVATE_KEY", "FTP_USERNAME", "FTP_PASSWORD"]
+    }
+  }
+}

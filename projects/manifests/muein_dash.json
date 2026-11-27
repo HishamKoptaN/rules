@@ -1,0 +1,62 @@
+{
+  "$schema": "../schema/project-environment.schema.json",
+  "name": "muein_dash",
+  "kind": "flutter_web",
+  "repository": "https://github.com/HishamKoptaN/muein_dash.git",
+  "devBranch": "dev",
+  "prodBranch": "prod",
+  "envSelection": {
+    "mechanism": "dart-define",
+    "variable": "ENV",
+    "defaultEnvironment": "dev"
+  },
+  "flutter": {
+    "envInterface": "lib/config/env.dart",
+    "devEnv": "lib/config/envs/dev_env.dart",
+    "prodEnv": "lib/config/envs/prod_env.dart",
+    "localDevUrl": "http://127.0.0.1:8000/api"
+  },
+  "firebase": {
+    "projects": {
+      "default": "muein-f36d0",
+      "dev": "muein-f36d0",
+      "prod": "muein-f36d0"
+    },
+    "publicDir": "build/web",
+    "channelId": "live",
+    "buildCommand": "flutter build web --release --dart-define=ENV=<branch>"
+  },
+  "environments": {
+    "dev": {
+      "name": "dev",
+      "hosting": {
+        "provider": "firebase-hosting",
+        "projectId": "muein-f36d0",
+        "workflow": ".github/workflows/firebase-hosting-merge.yml"
+      },
+      "url": "https://muein-f36d0.web.app",
+      "apiBaseUrl": "http://dev.muein.online/api",
+      "docsUrl": "https://hotpink-gnu-383634.hostingersite.com/docs",
+      "isProduction": false,
+      "testingAllowed": true,
+      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT_MUEIN_F36D0"]
+    },
+    "prod": {
+      "name": "prod",
+      "hosting": {
+        "provider": "custom-domain",
+        "domain": "muein.online",
+        "path": "/",
+        "workflow": ".github/workflows/firebase-hosting-merge.yml"
+      },
+      "url": "https://muein.online",
+      "apiBaseUrl": "https://muein.online/api",
+      "adminUrl": "https://muein.online/api/admin/",
+      "authUrl": "https://muein.online/api/auth/",
+      "docsUrl": "https://muein.online/docs",
+      "isProduction": true,
+      "testingAllowed": false,
+      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT_MUEIN_F36D0"]
+    }
+  }
+}
