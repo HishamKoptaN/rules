@@ -1,0 +1,62 @@
+{
+  "$schema": "../schema/project-environment.schema.json",
+  "name": "green_souq",
+  "kind": "flutter_web",
+  "repository": "https://github.com/HishamKoptaN/green-souq.git",
+  "devBranch": "dev",
+  "prodBranch": "prod",
+  "envSelection": {
+    "mechanism": "dart-define",
+    "variable": "ENV",
+    "defaultEnvironment": "dev"
+  },
+  "flutter": {
+    "envInterface": "lib/config/env.dart",
+    "devEnv": "lib/config/envs/dev_env.dart",
+    "prodEnv": "lib/config/envs/prod_env.dart",
+    "localDevUrl": "http://127.0.0.1:8000"
+  },
+  "firebase": {
+    "projects": {
+      "default": "greensoouq-dev",
+      "dev": "greensoouq-dev",
+      "prod": "green-soouq"
+    },
+    "hostingTargets": {
+      "greensoouq-dev": { "hosting": { "prod": ["greensoouq-dev"] } },
+      "green-soouq": { "hosting": { "prod": ["green-soouq"] } }
+    },
+    "publicDir": "build/web",
+    "channelId": "live"
+  },
+  "environments": {
+    "dev": {
+      "name": "dev",
+      "hosting": {
+        "provider": "firebase-hosting",
+        "projectId": "greensoouq-dev",
+        "target": "prod",
+        "workflow": ".github/workflows/ci-cd-pipeline.yml"
+      },
+      "url": "https://greensoouq-dev.web.app",
+      "apiBaseUrl": "https://dev.muein.online",
+      "isProduction": false,
+      "testingAllowed": true,
+      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT"]
+    },
+    "prod": {
+      "name": "prod",
+      "hosting": {
+        "provider": "firebase-hosting",
+        "projectId": "green-soouq",
+        "target": "prod",
+        "workflow": ".github/workflows/ci-cd-pipeline.yml"
+      },
+      "url": "https://green-soouq.web.app",
+      "apiBaseUrl": "https://springgreen-turtle-355093.hostingersite.com",
+      "isProduction": true,
+      "testingAllowed": false,
+      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT"]
+    }
+  }
+}
