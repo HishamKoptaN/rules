@@ -94,6 +94,11 @@ Each rule group lives in its own folder by specialty.
 ## `projects/` — Project Topology
 @[Project Topology Rules](projects/rules-project-topology.md)
 
+## `laravel/` — Laravel Projects
+@[Laravel Feature Structure](laravel/rules-feature-structure.md)
+@[Laravel Naming Rules](laravel/rules-naming.md)
+@[Laravel Lint & Verification Rules](laravel/rules-lint-and-verification.md)
+
 ## `meta/` — Agent Behavior
 @[Suggestions & Approval Flow (multi-select + batch execute)](meta/suggestions.md)
 @[Rate Limits & Auto-Retry](meta/rules-rate-limits.md)
