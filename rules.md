@@ -42,7 +42,7 @@ rules/
 - [[architecture]] — Clean Architecture (`data` / `domain` / `present` / `views`) و`ExecuteGuard<T>`.
 - [[rules-bloc]] — توجيهات `part` وإرسال الأحداث عبر GetIt.
 - [[rules-file-structure]] — حد 100 سطر للملف وعتبة 4 ملفات لتقسيم المجلد.
-- [[rules-action-buttons]] — تفعيل أزرار الإجراء ومنطق `hasChanges` في الـ Entity.
+- [[rules-action-buttons]] — تفعيل أزرار الإجراء عند وجود تغيير فعلي **و** صحة كل الحقول المطلوبة، مع المنطق في الـ Entity.
 - [[rules-adr]] — توثيق القرارات المعمارية في سجل ADR مختصر قبل التنفيذ.
 
 ## `code-style/` — Language & Styling
