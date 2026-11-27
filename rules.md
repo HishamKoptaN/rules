@@ -19,6 +19,7 @@ rules/
 ├── ui/                        # التجاوب والتصميم والعناصر المرئية
 ├── packages/                  # الحزم والإصدارات وملف pubspec
 ├── projects/                  # طوبولوجيا المشاريع: استضافة وبيئات وروابط
+├── laravel/                   # قواعد مشاريع Laravel (Modules/Features والتحقق)
 └── meta/                      # سلوك الوكيل قبل وبعد المهام
     ├── design/                # طلب تصاميل Google Stitch عند الحاجة إلى تصميم
     ├── planning/              # بدء المهمة بخطة مع تأكيد
@@ -63,6 +64,11 @@ rules/
 
 ## `projects/` — Project Topology
 - [[rules-project-topology]] — طوبولوجيا المشاريع: الاستضافة والبيئات والروابط ومخطط الـ manifest الذي يتبعه الوكلاء.
+
+## `laravel/` — Laravel Projects
+- [[rules-feature-structure]] — بنية Features/Modules بطبقات Domain/Data/Present بدل البنية الافتراضية.
+- [[rules-laravel-naming]] — تسمية الملفات داخل Features (Actions/DTOs/Requests/Resources/Strategies).
+- [[rules-laravel-lint]] — التحقق بـ composer test وأدوات Boost MCP بدل tinker والسكربتات المؤقتة.
 
 ## `meta/` — Agent Behavior
 - [[suggestions]] — اقتراحات تفاعلية متعددة الاختيار (`multiple: true`): تُنفَّذ كل الخيارات المختارة معاً بعد الموافقة، واقتراحات ما قبل التنفيذ تُختار ثم يُوافق عليها قبل التنفيذ.
