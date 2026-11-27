@@ -72,6 +72,7 @@ rules/
 - [[rules-google-stitch-design]] — طلب تصاميل من Google Stitch عند الحاجة إلى تصميم؛ معظم المشاريع لدينا لديها مشروع Stitch باسم مطابق تقريبًا.
 - [[rules-change-summary]] — ملخص مختصر للتغييرات مع كل commit وربطه بالـ PR.
 - [[rules-non-production-mode]] — وجود `.agent-non-production` يعني عمل الوكيل بشكل طبيعي ودمج الفروع في dev دون PR.
+- [[rules-headless-service-access]] — الوصول البرمجي (MCP/API/CLI) لخدمات مثل Firebase وGoogle Console وShorebird بدل التصفح.
 
 ## قواعد إضافة ملف جديد
 1. ضعه في المجلد الذي يطابق اختصاصه، وإن لم يوجد مجلد مناسب أنشئ واحدًا باسم واضح.
