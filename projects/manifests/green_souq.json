@@ -23,8 +23,20 @@
       "prod": "green-soouq"
     },
     "hostingTargets": {
-      "greensoouq-dev": { "hosting": { "prod": ["greensoouq-dev"] } },
-      "green-soouq": { "hosting": { "prod": ["green-soouq"] } }
+      "greensoouq-dev": {
+        "hosting": {
+          "prod": [
+            "greensoouq-dev"
+          ]
+        }
+      },
+      "green-soouq": {
+        "hosting": {
+          "prod": [
+            "green-soouq"
+          ]
+        }
+      }
     },
     "publicDir": "build/web",
     "channelId": "live"
@@ -39,10 +51,12 @@
         "workflow": ".github/workflows/ci-cd-pipeline.yml"
       },
       "url": "https://greensoouq-dev.web.app",
-      "apiBaseUrl": "https://dev.muein.online",
+      "apiBaseUrl": "https://lawngreen-tapir-650317.hostingersite.com",
       "isProduction": false,
       "testingAllowed": true,
-      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT"]
+      "secretRefs": [
+        "FIREBASE_SERVICE_ACCOUNT"
+      ]
     },
     "prod": {
       "name": "prod",
@@ -56,7 +70,9 @@
       "apiBaseUrl": "https://springgreen-turtle-355093.hostingersite.com",
       "isProduction": true,
       "testingAllowed": false,
-      "secretRefs": ["FIREBASE_SERVICE_ACCOUNT"]
+      "secretRefs": [
+        "FIREBASE_SERVICE_ACCOUNT"
+      ]
     }
   }
 }
