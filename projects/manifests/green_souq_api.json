@@ -11,9 +11,14 @@
   "environments": {
     "dev": {
       "name": "dev",
-      "hosting": { "provider": "custom-domain", "domain": "localhost", "path": "/" },
-      "url": "http://localhost:8000",
-      "apiBaseUrl": "http://localhost:8000",
+      "hosting": {
+        "provider": "hostinger-sftp",
+        "domain": "lawngreen-tapir-650317.hostingersite.com",
+        "path": "/",
+        "workflow": ".github/workflows/deploy.yaml"
+      },
+      "url": "https://lawngreen-tapir-650317.hostingersite.com",
+      "apiBaseUrl": "https://lawngreen-tapir-650317.hostingersite.com",
       "isProduction": false,
       "testingAllowed": true,
       "secretRefs": []
@@ -30,7 +35,11 @@
       "apiBaseUrl": "https://springgreen-turtle-355093.hostingersite.com",
       "isProduction": true,
       "testingAllowed": false,
-      "secretRefs": ["SSH_PRIVATE_KEY", "FTP_USERNAME", "FTP_PASSWORD"]
+      "secretRefs": [
+        "SSH_PRIVATE_KEY",
+        "FTP_USERNAME",
+        "FTP_PASSWORD"
+      ]
     }
   }
 }
